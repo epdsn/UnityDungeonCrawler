@@ -3,11 +3,16 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
 
-    public Rigidbody2D rb;
-
-    // Update is called once per frame
-    void Update()
+    public string playerName = "Bob the hero";
+    public int age = 25;
+    public float moveSpeed = 2.5f; // in units per second
+    public bool gameOver = false;
+    public Rigidbody rb;
+    public void Start()
     {
-        rb.linearVelocity = new Vector2(Input.GetAxis("Horizontal"), rb.linearVelocityY);
+        Debug.Log("Player name is: "  + playerName);
     }
+
+
+
 }
