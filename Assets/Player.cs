@@ -2,23 +2,20 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    private Rigidbody2D rb;
 
-    public string playerName = "Bob the hero";
-    public int age = 25;
-    public int characterLevel = 80;
-    public float moveSpeed = 2.5f; // in units per second
-    public bool gameOver = false;
-    public Rigidbody rb;
-    public int currentHp = 100;
+    [SerializeField] private float moveSpeed = 3.5f;
+    private float xInput;
 
-
-    private void Start()
+    private void Awake()
     {
-        TakeDamage(25);
+        rb = GetComponent<Rigidbody2D>();
     }
-    private void TakeDamage(int damage)
+
+    private void Update()
     {
-        currentHp = currentHp - damage;
+        xInput = Input.GetAxisRaw("Horizontal");
+        rb.linearVelocity = new Vector2(xInput * moveSpeed, rb.linearVelocity.y);
     }
 
 }
