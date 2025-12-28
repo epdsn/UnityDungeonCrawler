@@ -6,9 +6,15 @@ public class Player : MonoBehaviour
     private Animator anim;
     private Rigidbody2D rb;
 
+    [Header("Movement details")]
     [SerializeField] private float moveSpeed = 3.5f;
     [SerializeField] private float jumpForce = 8;
     private float xInput;
+
+    [Header("Collision details")]
+    [SerializeField] private float groudCheckDistance;
+    [SerializeField] private bool isGrounded;
+    [SerializeField] private LayerMask whatIsGround;
 
    [SerializeField] private bool facingRight = true;
 
@@ -20,6 +26,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+        HandleCollision();
         HandleInput();
         HandleMovement();
         HandleAnimations();
@@ -49,7 +56,11 @@ public class Player : MonoBehaviour
     private void Jump()
     {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+    }
 
+    private void HandleCollision()
+    {
+        isGrounded = Physics2D.Raycast(transform.position, Vector2.down, groudCheckDistance, whatIsGround);
     }
 
     private void HandleFlip()
@@ -64,6 +75,11 @@ public class Player : MonoBehaviour
     {
         transform.Rotate(0, 180, 0);
         facingRight = !facingRight;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawLine(transform.position, transform.position + new Vector3(0, -groudCheckDistance));
     }
 
 }
