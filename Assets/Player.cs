@@ -38,6 +38,8 @@ public class Player : MonoBehaviour
        bool isMoving = rb.linearVelocity.x != 0;
 
         anim.SetBool("isMoving", isMoving);
+
+        anim.SetFloat("yVelocity", rb.linearVelocity.y);
     }
 
     private void HandleInput()
