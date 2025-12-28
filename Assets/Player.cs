@@ -10,13 +10,13 @@ public class Player : MonoBehaviour
     [SerializeField] private float moveSpeed = 3.5f;
     [SerializeField] private float jumpForce = 8;
     private float xInput;
+    private bool facingRight = true;
 
     [Header("Collision details")]
     [SerializeField] private float groudCheckDistance;
-    [SerializeField] private bool isGrounded;
     [SerializeField] private LayerMask whatIsGround;
+    private bool isGrounded;
 
-   [SerializeField] private bool facingRight = true;
 
     private void Awake()
     {
@@ -55,6 +55,7 @@ public class Player : MonoBehaviour
 
     private void Jump()
     {
+        if(isGrounded)
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
     }
 
