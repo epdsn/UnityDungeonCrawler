@@ -1,41 +1,30 @@
-using System;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    private SpriteRenderer sr;
-    // Cooldown duration for red color effect
-    [SerializeField] private float redColorDuration = 1;
-
-    public float currentTimeInGame;
-    public float timeWhenLastHit;
-
-    private void Awake()
-    {
-        sr = GetComponent<SpriteRenderer>();
-    }
+    [SerializeField] protected float moveSpeed;
+    [SerializeField] protected string enemyName;
 
     private void Update()
     {
-        ChangeColorIfHit();
-    }
+        //MoveAround();
+        if (Input.GetKeyDown(KeyCode.F))
+            Attack();
+    }   
 
-    private void ChangeColorIfHit()
+    private void MoveAround()
     {
-        currentTimeInGame = Time.time;
-
-        if (currentTimeInGame > timeWhenLastHit + redColorDuration)
-        {
-            if (sr.color != Color.white)
-                sr.color = Color.white;
-        }
-
+        Debug.Log($"{enemyName} is moving at speed {moveSpeed}");
+    }
+    private void Attack()
+    { 
+        // Implement attack behavior here
+        Debug.Log($"{enemyName} is attacking!");
     }
 
     public void TakeDamage()
-    { 
-        sr.color = Color.red;
-        timeWhenLastHit = Time.time;
+    {
+        Debug.Log($"{enemyName} took damage!");
     }
 
 }
