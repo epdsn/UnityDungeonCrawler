@@ -549,7 +549,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8930f74a4975a8c4f921ecf2200623c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyColliders: []
   attackRadius: 0.92
   attackPoint: {fileID: 926015262}
   whatIsEnemy:
@@ -706,6 +705,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3abce1c5f40bff4ea1d478da1225358, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  redColorDuration: 3
 --- !u!212 &1288339606
 SpriteRenderer:
   m_ObjectHideFlags: 0
