@@ -107,8 +107,8 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0
-    functionName: 
+  - time: 0.33333334
+    functionName: DamageToEnemies
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
@@ -116,13 +116,6 @@ AnimationClip:
     messageOptions: 0
   - time: 0.6666667
     functionName: EnableMovementAndJump
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0.6666667
-    functionName: 
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
